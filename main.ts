@@ -21,28 +21,42 @@ bluetooth.onBluetoothDisconnected(function () {
 })
 control.onEvent(EventBusSource.MES_DPAD_CONTROLLER_ID, EventBusValue.MICROBIT_EVT_ANY, function () {
     if (control.eventValue() == EventBusValue.MES_DPAD_BUTTON_1_DOWN) {
-        basic.showString("B1D")
+        basic.showString("fwd")
+        pins.servoWritePin(AnalogPin.P0, 180)
+        pins.servoWritePin(AnalogPin.P1, 180)
     } else {
         if (control.eventValue() == EventBusValue.MES_DPAD_BUTTON_1_UP) {
-            basic.showString("B1U")
+            basic.showString("bwd")
+            pins.servoWritePin(AnalogPin.P0, 0)
+            pins.servoWritePin(AnalogPin.P1, 0)
         } else {
             if (control.eventValue() == EventBusValue.MES_DPAD_BUTTON_2_DOWN) {
-                basic.showString("B2D")
+                basic.showString("lft")
+                pins.servoWritePin(AnalogPin.P0, 180)
+                pins.servoWritePin(AnalogPin.P1, 90)
             } else {
                 if (control.eventValue() == EventBusValue.MES_DPAD_BUTTON_2_UP) {
-                    basic.showString("B2U")
+                    basic.showString("rht")
+                    pins.servoWritePin(AnalogPin.P0, 90)
+                    pins.servoWritePin(AnalogPin.P1, 180)
                 } else {
                     if (control.eventValue() == EventBusValue.MES_DPAD_BUTTON_3_DOWN) {
-                        basic.showString("B3D")
+                        basic.showString("stp")
+                        pins.servoWritePin(AnalogPin.P0, 90)
+                        pins.servoWritePin(AnalogPin.P1, 90)
                     } else {
                         if (control.eventValue() == EventBusValue.MES_DPAD_BUTTON_3_UP) {
-                            basic.showString("B3D")
+                            basic.showString("hlt")
+                            pins.servoWritePin(AnalogPin.P0, 180)
+                            pins.servoWritePin(AnalogPin.P1, 0)
                         } else {
                             if (control.eventValue() == EventBusValue.MES_DPAD_BUTTON_4_DOWN) {
-                                basic.showString("B4D")
+                                basic.showString("hrt")
+                                pins.servoWritePin(AnalogPin.P0, 0)
+                                pins.servoWritePin(AnalogPin.P1, 180)
                             } else {
                                 if (control.eventValue() == EventBusValue.MES_DPAD_BUTTON_4_UP) {
-                                	
+                                    basic.showString("4up")
                                 } else {
                                     basic.showString("other")
                                 }
